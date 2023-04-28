@@ -6,11 +6,6 @@
       </div>
     </div>
   </header>
-  <a
-    href="
-  "
-  ></a>
-  <a href=""></a>
 </template>
 
 <script>
@@ -18,8 +13,7 @@ export default {
   name: 'MainNav',
   data() {
     return {
-      company: 'Boobo Careers',
-      author: 'Elmi'
+      company: 'Boobo Careers'
     }
   }
 }
