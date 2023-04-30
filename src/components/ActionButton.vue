@@ -10,11 +10,15 @@ export default {
   props: {
     text: {
       type: String,
-      default: 'Button'
+      required: true
     },
     type: {
       type: String,
-      default: 'primary'
+      required: false,
+      default: 'primary',
+      validator(value) {
+        return ['primary', 'secondary'].includes(value)
+      }
     }
   },
   computed: {

@@ -1,6 +1,6 @@
 <template>
-  <header class="w-full text-sm bg-blue-50">
-    <div class="fixed top-0 left-0 h-16 bg-red-50 w-full">
+  <header class="w-full text-sm">
+    <div class="fixed top-0 left-0 h-16 bg-white w-full">
       <div class="h-full px-8 flex items-center border-solid border-brand-gray-1 border-b">
         <a :href="url" class="text-xl flex h-full items-center">{{ company }}</a>
         <div class="h-full pl-12">
@@ -15,16 +15,18 @@
           <action-button v-else text="Sign in" type="primary" @click="loginUser"></action-button>
         </div>
       </div>
+      <the-subnav v-if="isLoggedIn"></the-subnav>
     </div>
   </header>
 </template>
 
 <script>
+import TheSubnav from './TheSubnav.vue'
 import ProfileImage from './ProfileImage.vue'
 import ActionButton from './ActionButton.vue'
 export default {
   name: 'MainNav',
-  components: { ActionButton, ProfileImage },
+  components: { ActionButton, ProfileImage, TheSubnav },
   data() {
     return {
       company: 'Bobo Careers',
