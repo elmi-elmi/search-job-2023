@@ -2,15 +2,23 @@ import { render, screen } from '@testing-library/vue'
 import MainNav from '@/components/MainNav.vue'
 
 describe('MainNAv', () => {
+  const mainNavRender = () => {
+    render(MainNav, {
+      global: {
+        stubs: {
+          FontAweSome: true
+        }
+      }
+    })
+  }
   it('displays company name', () => {
-    render(MainNav)
-    screen.debug()
+    mainNavRender()
     const companyName = screen.getByText('Bobo Careers')
     expect(companyName).toBeInTheDocument()
   })
 
   it('displays menu items for navigations', () => {
-    render(MainNav)
+    mainNavRender()
     const navigationMenuItems = screen.getAllByRole('listitem')
     const navigationsMenuItemsText = navigationMenuItems.map((item) => item.textContent)
     expect(navigationsMenuItemsText).toEqual([
