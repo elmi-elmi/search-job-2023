@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full text-sm">
+  <header :class="['w-full', 'text-sm', headerHeightClass]">
     <div class="fixed top-0 left-0 h-16 bg-white w-full">
       <div class="h-full px-8 flex items-center border-solid border-brand-gray-1 border-b">
         <a :href="url" class="text-xl flex h-full items-center">{{ company }}</a>
@@ -33,6 +33,14 @@ export default {
       url: 'https://career.googl.com',
       menuItems: ['Teams', 'Locations', 'Life at Bobo Corp', 'How we hire', 'Students', 'Jobs'],
       isLoggedIn: false
+    }
+  },
+  computed: {
+    headerHeightClass() {
+      return {
+        'h-16': !this.isLoggedIn,
+        'h-32': this.isLoggedIn
+      }
     }
   },
   methods: {
