@@ -11,6 +11,7 @@ describe('MainNAv', () => {
       }
     })
   }
+  // test
   it('displays company name', () => {
     mainNavRender()
     const companyName = screen.getByText('Bobo Careers')
